@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Dashboard Pro</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="login-card">
+
+        <div class="header">
+
+            <h1>
+                <i class="fa-solid fa-brain"></i>
+                Emotion Dashboard
+            </h1>
+
+            <p>AI Powered Emotion Recognition System</p>
+
+        </div>
+
+        <form action="/login" method="POST">
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input type="email" name="email" placeholder="Email">
+
+            </div>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input type="password" name="password" placeholder="Password">
+
+            </div>
+
+            <button type="submit" class="login-btn">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                Login
+
+            </button>
+            <p style="text-align:center;margin-top:15px;">
+    <a href="/forgot-password">Forgot Password?</a>
+</p>
+
+<p style="text-align:center;margin-top:10px;">
+    Don't have an account?
+    <a href="/signup">Create Account</a>
+</p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

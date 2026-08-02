@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emotion Dashboard Pro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <ul>
+
+    <li class="active">
+        <a href="{{ url_for('dashboard') }}">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <aside class="sidebar">
+
+    <div class="logo">
+        <i class="fa-solid fa-brain"></i>
+        <h2>Emotion AI</h2>
+    </div>
+
+    <ul>
+
+        <li class="active">
+            <a href="{{ url_for('dashboard') }}">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <i class="fa-solid fa-camera"></i>
+            <span>Live Camera</span>
+        </li>
+
+        <li>
+            <a href="{{ url_for('analytics') }}">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Analytics</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('history') }}">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>History</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('profile') }}">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <div class="top-bar">
+
+            <h1>
+
+                <i class="fa-solid fa-face-smile"></i>
+
+                Emotion Dashboard Pro
+
+            </h1>
+
+            <a href="{{ url_for('login') }}">
+
+    <button class="logout-btn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</a>
+
+        </div>
+
+        <!-- DASHBOARD GRID -->
+
+        <div class="dashboard-grid">
+
+            <!-- =========================
+                 CAMERA CARD
+            ========================== -->
+
+            <div class="card camera-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-camera"></i>
+
+                    Live Camera
+
+                </h2>
+
+                <div class="camera-box">
+
+            <img
+                id="camera-feed"
+                src="{{ url_for('video_feed') }}"
+                width="640"
+                height="480"
+                style="object-fit:cover;border-radius:15px;"
+                alt="Camera Feed">    
+                    
+                        
+                
+
+            </div>
+        <p
+            id="camera-status"
+            style="text-align:center;
+                color:#16a34a;
+                margin-top:10px;">
+
+            Camera Ready
+
+        </p>
+
+                <div style="margin-top:20px;text-align:center;">
+
+                    <button
+                        id="start-camera"
+                        class="login-btn">
+
+                        <i class="fa-solid fa-play"></i>
+
+                        Start Detection
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- =========================
+                 EMOTION CARD
+            ========================== -->
+
+            <div class="card emotion-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-face-smile"></i>
+
+                    Current Emotion
+
+                </h2>
+
+                <div class="emoji">
+
+                    😊
+
+                </div>
+
+                <h3 id="emotion-name">
+
+                    Waiting...
+
+                </h3>
+
+                <p id="emotion-confidence">
+
+                    Face not detected
+
+                </p>
+
+            </div>
+                        <!-- =========================
+                 CONFIDENCE CARD
+            ========================== -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-chart-simple"></i>
+
+                    Confidence
+
+                </h2>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="confidence-bar">
+
+                    </div>
+
+                </div>
+
+                <h3 id="confidence-text">
+
+                    0%
+
+                </h3>
+
+            </div>
+
+            <!-- =========================
+                 AI SUGGESTION
+            ========================== -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    AI Suggestion
+
+                </h2>
+
+                <p id="ai-suggestion">
+
+                    Suggestions will appear here...
+
+                </p>
+
+            </div>
+
+            <!-- =========================
+                 TOTAL DETECTIONS
+            ========================== -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Total Detections
+
+                </h2>
+
+                <h1 id="total-detection">
+
+                    0
+
+                </h1>
+
+                <p>
+
+                    Faces detected today
+
+                </p>
+
+            </div>
+
+            <!-- =========================
+                 HAPPY
+            ========================== -->
+
+            <div class="card">
+
+                <h2>
+
+                    😊 Happy
+
+                </h2>
+
+                <h1 id="happy-count">
+
+                    0
+
+                </h1>
+
+            </div>
+
+            <!-- =========================
+                 SAD
+            ========================== -->
+
+            <div class="card">
+
+                <h2>
+
+                    😢 Sad
+
+                </h2>
+
+                <h1 id="sad-count">
+
+                    0
+
+                </h1>
+
+            </div>
+
+            <!-- =========================
+                 NEUTRAL
+            ========================== -->
+
+            <div class="card">
+
+                <h2>
+
+                    😐 Neutral
+
+                </h2>
+
+                <h1 id="neutral-count">
+
+                    0
+
+                </h1>
+
+            </div>
+                        <!-- =========================
+                 HISTORY CARD
+            ========================== -->
+
+            <div class="card history-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    Recent History
+
+                </h2>
+
+                <table class="history-table">
+
+                    <tr>
+
+                        <th>Time</th>
+                        <th>Emotion</th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>10:30 AM</td>
+                        <td>😊 Happy</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>10:35 AM</td>
+                        <td>😐 Neutral</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>10:40 AM</td>
+                        <td>😢 Sad</td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- =========================
+                 PROFILE CARD
+            ========================== -->
+
+            <div class="card profile-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-user"></i>
+
+                    User Profile
+
+                </h2>
+
+                <p>
+
+                    <strong>Name :</strong> Ayesha
+
+                </p>
+
+                <p>
+
+                    <strong>Project :</strong>
+
+                    AI Emotion Recognition Web Application
+
+                </p>
+
+                <p>
+
+                    <strong>Version :</strong>
+
+                    1.0
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

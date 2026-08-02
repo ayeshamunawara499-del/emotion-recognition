@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emotion History</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-brain"></i>
+            <h2>Emotion AI</h2>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="{{ url_for('dashboard') }}"
+                style="text-decoration:none;color:inherit;">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                History
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <div class="top-bar">
+
+            <h1>
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                Emotion History
+
+            </h1>
+
+        </div>
+
+        <div class="card">
+
+            <table
+            style="width:100%;
+            border-collapse:collapse;
+            text-align:center;">
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Emotion</th>
+
+                    <th>Confidence</th>
+
+                    <th>Date</th>
+
+                    <th>Time</th>
+
+                </tr>
+
+                {% for row in data %}
+
+                <tr>
+
+                    <td>{{ loop.index }}</td>
+
+                    <td>{{ row[0] }}</td>
+
+                    <td>{{ "%.1f"|format(row[1]) }}%</td>
+
+                    <td>{{ row[2] }}</td>
+
+                    <td>{{ row[3] }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

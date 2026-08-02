@@ -1,0 +1,1021 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#0f766e);
+    background-size:400% 400%;
+    animation:gradientMove 12s ease infinite;
+    color:white;
+    min-height:100vh;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    width:95%;
+    max-width:1400px;
+    margin:auto;
+    padding:20px;
+}
+
+.header{
+    text-align:center;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:40px;
+    color:#00e5ff;
+    text-shadow:0 0 15px cyan;
+}
+
+.header p{
+    margin-top:10px;
+    color:#ddd;
+    font-size:18px;
+}
+/* ===========================
+   LOGIN CARD
+=========================== */
+
+.login-card{
+
+    width:420px;
+
+    margin:50px auto;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    padding:40px;
+
+    animation:fadeIn 1.2s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.header i{
+
+    color:#00e5ff;
+
+    margin-right:10px;
+
+}
+
+.header{
+
+    margin-bottom:35px;
+
+}
+/* ===========================
+   INPUT BOX
+=========================== */
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:25px;
+
+}
+
+.input-box i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:18px;
+
+    color:#00e5ff;
+
+    font-size:18px;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:15px 20px 15px 50px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.4s;
+
+}
+
+.input-box input::placeholder{
+
+    color:#dddddd;
+
+}
+
+.input-box input:focus{
+
+    border:1px solid cyan;
+
+    box-shadow:0 0 15px cyan;
+
+    background:rgba(255,255,255,.18);
+
+}
+/* ===========================
+   LOGIN BUTTON
+=========================== */
+
+.login-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(90deg,#00e5ff,#00bcd4);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:0 0 20px rgba(0,229,255,.4);
+
+}
+
+.login-btn i{
+
+    margin-right:8px;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 0 30px cyan;
+
+    background:linear-gradient(90deg,#00bcd4,#00e5ff);
+
+}
+
+.login-btn:active{
+
+    transform:scale(.98);
+
+}
+/* ===========================
+   PREMIUM EFFECTS
+=========================== */
+
+.login-card:hover{
+
+    transform:translateY(-8px);
+
+    transition:.5s;
+
+    box-shadow:
+        0 20px 45px rgba(0,229,255,.35),
+        0 0 40px rgba(0,255,255,.25);
+
+}
+
+.header h1{
+
+    animation:glowText 2s ease-in-out infinite alternate;
+
+}
+
+@keyframes glowText{
+
+    from{
+
+        text-shadow:
+            0 0 8px #00e5ff,
+            0 0 18px #00e5ff;
+
+    }
+
+    to{
+
+        text-shadow:
+            0 0 20px cyan,
+            0 0 35px cyan;
+
+    }
+
+}
+
+.login-card{
+
+    animation:
+        fadeIn 1s ease,
+        floating 4s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+@media (max-width:768px){
+
+    .login-card{
+
+        width:95%;
+
+        padding:30px 20px;
+
+    }
+
+    .header h1{
+
+        font-size:30px;
+
+    }
+
+    .header p{
+
+        font-size:15px;
+
+    }
+
+    .login-btn{
+
+        font-size:16px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .container{
+
+        padding:15px;
+
+    }
+
+    .header h1{
+
+        font-size:24px;
+
+    }
+
+    .header p{
+
+        font-size:14px;
+
+    }
+
+    .input-box input{
+
+        font-size:15px;
+
+    }
+
+}
+/* =====================================
+   DASHBOARD MAIN LAYOUT
+===================================== */
+
+.dashboard-container{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+.sidebar{
+
+    width:260px;
+
+    background:rgba(10,20,40,.95);
+
+    backdrop-filter:blur(20px);
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+    padding:25px;
+
+    transition:.4s;
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo i{
+
+    font-size:45px;
+
+    color:#00e5ff;
+
+    margin-bottom:10px;
+
+}
+
+.logo h2{
+
+    color:white;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar ul li{
+
+    color:white;
+
+    padding:16px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.sidebar ul li:hover{
+
+    background:#00bcd4;
+
+    transform:translateX(8px);
+
+}
+
+.sidebar ul li.active{
+
+    background:#00e5ff;
+
+    color:#111;
+
+    font-weight:bold;
+
+}
+
+.main-content{
+
+    flex:1;
+
+    padding:30px;
+
+}
+
+.top-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.top-bar h1{
+
+    color:white;
+
+}
+
+.logout-btn{
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ff3b5c;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.logout-btn:hover{
+
+    transform:scale(1.05);
+
+}
+/* =====================================
+   DASHBOARD CARDS
+===================================== */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    color:white;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.30);
+
+    transition:.4s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,229,255,.30);
+
+}
+
+.card h2{
+
+    margin-bottom:20px;
+
+    color:#00e5ff;
+
+}
+
+.camera-box{
+
+    width:100%;
+
+    height:350px;
+
+    border-radius:18px;
+
+    background:#111827;
+
+    border:2px dashed #00e5ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+}
+
+.camera-placeholder i{
+
+    font-size:70px;
+
+    color:#00e5ff;
+
+    margin-bottom:15px;
+
+}
+
+.camera-placeholder p{
+
+    color:#cccccc;
+
+}
+
+.emoji{
+
+    font-size:80px;
+
+    text-align:center;
+
+    margin:20px 0;
+
+    animation:emojiFloat 2s ease-in-out infinite;
+
+}
+
+@keyframes emojiFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+/* =====================================
+   PROGRESS BAR
+===================================== */
+
+.progress{
+
+    width:100%;
+
+    height:20px;
+
+    background:#1f2937;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin:20px 0;
+
+}
+
+.progress-bar{
+
+    width:97%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#00e5ff,#00ff95);
+
+    border-radius:50px;
+
+    animation:progressMove 2s ease;
+
+}
+
+@keyframes progressMove{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:97%;
+
+    }
+
+}
+
+/* =====================================
+   AI SUGGESTION CARD
+===================================== */
+
+.card p{
+
+    line-height:1.8;
+
+    color:#dddddd;
+
+}
+
+.card h3{
+
+    color:#ffffff;
+
+    margin-top:15px;
+
+    font-size:28px;
+
+}
+
+/* =====================================
+   CAMERA IMAGE
+===================================== */
+
+#camera-feed{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    display:block;
+
+}
+
+/* =====================================
+   RESPONSIVE DASHBOARD
+===================================== */
+
+@media(max-width:1000px){
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.sidebar{
+
+width:220px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard-container{
+
+flex-direction:column;
+
+}
+
+.sidebar{
+
+width:100%;
+
+border-right:none;
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+.top-bar{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}
+/* =====================================
+   PREMIUM CARD ANIMATIONS
+===================================== */
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-50%;
+
+    left:-50%;
+
+    width:200%;
+
+    height:200%;
+
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,.08),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:shine 6s linear infinite;
+
+}
+
+@keyframes shine{
+
+    0%{
+
+        transform:translateX(-100%) rotate(25deg);
+
+    }
+
+    100%{
+
+        transform:translateX(100%) rotate(25deg);
+
+    }
+
+}
+
+/* =====================================
+   HOVER GLOW
+===================================== */
+
+.card:hover{
+
+    border:1px solid rgba(0,229,255,.4);
+
+}
+
+.card h2 i{
+
+    color:#00e5ff;
+
+    margin-right:10px;
+
+}
+
+/* =====================================
+   LOGOUT BUTTON
+===================================== */
+
+.logout-btn{
+
+    box-shadow:0 0 15px rgba(255,59,92,.5);
+
+}
+
+.logout-btn:hover{
+
+    box-shadow:0 0 30px rgba(255,59,92,.8);
+
+}
+
+/* =====================================
+   SIDEBAR ICONS
+===================================== */
+
+.sidebar ul li i{
+
+    width:25px;
+
+    margin-right:10px;
+
+}
+
+/* =====================================
+   SMOOTH PAGE LOAD
+===================================== */
+
+.main-content{
+
+    animation:fadePage .8s ease;
+
+}
+
+@keyframes fadePage{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* =====================================
+   FINAL UI POLISH
+===================================== */
+
+body{
+
+    overflow-x:hidden;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0f172a;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00e5ff;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#00bcd4;
+
+}
+
+/* Dashboard Title */
+
+.top-bar h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    text-shadow:0 0 15px rgba(0,229,255,.5);
+
+}
+
+/* Camera Card */
+
+.camera-card{
+
+    min-height:460px;
+
+}
+
+/* Emotion Name */
+
+#emotion-name{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:#00ff95;
+
+    text-align:center;
+
+}
+
+/* Buttons */
+
+button{
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* Input Focus */
+
+.input-box input:focus{
+
+    outline:none;
+
+    border:2px solid #00e5ff;
+
+    box-shadow:0 0 12px rgba(0,229,255,.5);
+
+}
+
+/* Footer Space */
+
+.main-content{
+
+    padding-bottom:50px;
+
+}
+/* ===========================
+   LIVE CAMERA VIDEO
+=========================== */
+
+#camera-feed{
+
+    width:100%;
+
+    height:340px;
+
+    border-radius:20px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:black;
+
+}
+#camera-feed{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:20px;
+    display:block;
+    background:black;
+}
+.sidebar ul li a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    color:white;
+    text-decoration:none;
+}
+
+.sidebar ul li.active a{
+    color:#111;
+}

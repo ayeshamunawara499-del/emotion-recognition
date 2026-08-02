@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emotion Analytics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <main class="main-content">
+
+        <div class="top-bar">
+
+            <h1>📊 Emotion Analytics</h1>
+
+            <a href="/dashboard">
+
+                <button class="logout-btn">
+
+                    ← Dashboard
+
+                </button>
+
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Emotion Statistics</h2>
+
+            <canvas id="emotionChart"></canvas>
+
+        </div>
+
+        <br>
+
+        <div class="card">
+
+            <h2>Emotion Summary</h2>
+
+            <table class="history-table">
+
+                <tr>
+
+                    <th>Emotion</th>
+
+                    <th>Total</th>
+
+                </tr>
+
+                {% for row in data %}
+
+                <tr>
+
+                    <td>{{ row[0] }}</td>
+
+                    <td>{{ row[1] }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+
+
+const labels = JSON.parse('{{ data | map(attribute=0) | list | tojson | safe }}');
+
+const values = JSON.parse('{{ data | map(attribute=1) | list | tojson | safe }}');
+
+const ctx = document.getElementById("emotionChart");
+
+new Chart(ctx, {
+
+    type: "pie",
+
+    data: {
+
+        labels: labels,
+
+        datasets: [{
+
+            data: values,
+
+            backgroundColor: [
+
+                "#22c55e",
+                "#3b82f6",
+                "#f59e0b",
+                "#ef4444",
+                "#8b5cf6",
+                "#06b6d4",
+                "#ec4899"
+
+            ]
+
+        }]
+
+    }
+
+});
+
+
+
+</script>
+
+</body>
+
+</html>
